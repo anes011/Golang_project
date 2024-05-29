@@ -14,8 +14,8 @@ func HandleGetUsers(db *sql.DB) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		params := mux.Vars(r)
 
-		offsetInt, err := strconv.Atoi(params["offset"])
-		limitInt, err := strconv.Atoi(params["limit"])
+		offsetInt, _ := strconv.Atoi(params["offset"])
+		limitInt, _ := strconv.Atoi(params["limit"])
 
 		pagination := &controllers.Pagination{
 			Offset: offsetInt,
